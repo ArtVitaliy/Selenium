@@ -19,7 +19,7 @@ public class ApplicationDebTest {
 
     @BeforeAll
     static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "Selenium/driver/win/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "./driver/win/chromedriver.exe");
     }
 
     @BeforeEach
@@ -42,7 +42,7 @@ public class ApplicationDebTest {
         driver.findElement(By.className("checkbox_box")).click();
         driver.findElement(By.tagName("button"));
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.className("order-success")).getText();
+        String actual = driver.findElement(By.className("order-success")).getText().trim();
         assertEquals(expected, actual);
 
     }
